@@ -45,7 +45,7 @@
             android:layout_gravity="center|top"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
-            android:text="@string/label_btn_download" />
+            android:text="@string/label_btn_rand" />
 
         <Button
             android:id="@+id/btn_stop_service"

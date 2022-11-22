@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopServiceEvent(){stopService(new Intent(this, PlayFG.class));}
 
-    private void downloadLectures(){
+    private void getRandomNumber(){
         //startService(new Intent(this, Download.class));
         if (mIsService){
             int rand = mRandService.getRandom();
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callSeriveBG(){
+        Toast.makeText(this, "Acessando o servidor", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, DownloadBG.class);
         File dirname = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         intent.putExtra(DownloadBG.EXTRA_PARAM_DIR, dirname.getPath());
@@ -107,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
             switch (view.getId()){
                 case R.id.btn_start_service:startServiceEvent();break;
                 case R.id.btn_stop_service:stopServiceEvent();break;
-                case R.id.btn_download_service:downloadLectures();break;
+                case R.id.btn_download_service:
+                    getRandomNumber();break;
                 case R.id.btn_bg_service:callSeriveBG();break;
 
             }

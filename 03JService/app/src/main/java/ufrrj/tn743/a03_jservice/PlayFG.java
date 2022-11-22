@@ -12,6 +12,7 @@ public class PlayFG extends Service {
     public PlayFG() {
         super();
     }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 

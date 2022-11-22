@@ -47,6 +47,7 @@ public class DownloadBG extends IntentService {
     }
 
     private void download(){
+
         OkHttpClient client;
         client = new OkHttpClient();
         DownloadBG.MyCallBack myCallBack = new DownloadBG.MyCallBack();
@@ -66,7 +67,10 @@ public class DownloadBG extends IntentService {
 
     }
 
-
+    @Override
+    public void onDestroy(){
+        Toast.makeText(this, "Help!", Toast.LENGTH_LONG).show();
+    }
     private class MyCallBack implements Callback {
         @Override
         public void onFailure(Call call, IOException e) {
