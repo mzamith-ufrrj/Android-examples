@@ -13,13 +13,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MainActivity extends AppCompatActivity {
     private static final String MSGKEY = "UFRRJ-tn743";
@@ -29,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
                    mBtnThread = null,
                    mBtnClean = null,
                    mBtnShowMsg = null;
+
     private ProgressBar mProgressBarAsync = null,
                         mProgressBarThread = null;
     private Handler mHandler = null;
 
+    private Lock mLock = new ReentrantLock();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 Bundle bundle = msg.getData();
                 Bitmap bitmap = bundle.getParcelable(MSGKEY);
-                mImgSource.setImageBitmap(bitmap);
+                setImage(bitmap);
+
                 mProgressBarThread.setVisibility(View.INVISIBLE);
             }
         };
@@ -91,11 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void btnMainEvent(){
+        disableBTN();
         Bitmap bitmap_in = BitmapFactory.decodeResource(getResources(), R.drawable.img_2048_1536);
         int w = bitmap_in.getWidth();
         int h = bitmap_in.getHeight();
-
-
 
         int[] pixels = new int[w * h];
         bitmap_in.getPixels(pixels, 0, w, 0, 0, w, h);
@@ -107,14 +111,10 @@ public class MainActivity extends AppCompatActivity {
 
         Bitmap bitmap_out = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         bitmap_out.setPixels(pixels, 0, w, 0, 0, w, h);
-        mImgSource.setImageBitmap(bitmap_out);
-        String msg = new String("Image (" + Integer.toString(w) + "," + Integer.toString(h)+")");
-        Toast t = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT);
-        t.show();
+        setImage(bitmap_out);
 
-//set the image to the imageView
-        //imageView.setImageBitmap(bitmap);
     }
+
 
     private void ShowMessage(){
         Toast t = Toast.makeText(getApplicationContext(), "Exibindo mesagem usando [Toast]", Toast.LENGTH_LONG);
@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnAsyncEvent(){
+        disableBTN();
         mProgressBarAsync.setVisibility(View.VISIBLE);
         new AsyncTaskRunner().execute(Integer.toString(R.drawable.img_2048_1536));
         //Toast t = Toast.makeText(getApplicationContext(), "btnAsyncEvent(){\n", Toast.LENGTH_SHORT);
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
     private void btnThreadEvent(){
         //Toast t = Toast.makeText(getApplicationContext(), "btnThreadEvent(){\n", Toast.LENGTH_SHORT);
         //t.show();
+        disableBTN();
         taskInRunnable r = new taskInRunnable();
         r.setHander(mHandler);
         r.setImageFile(R.drawable.img_2048_1536);
@@ -138,6 +140,49 @@ public class MainActivity extends AppCompatActivity {
         new  Thread(r).start();
     }
 
+    private void disableBTN(){
+        mBtnMain.setEnabled(false);
+        mBtnAsync.setEnabled(false);
+        mBtnThread.setEnabled(false);
+    }
+
+    private void enableBTN(){
+        mBtnMain.setEnabled(true);
+        mBtnAsync.setEnabled(true);
+        mBtnThread.setEnabled(true);
+    }
+
+    private void setImage(Bitmap bitmap){
+        //bankLock.lock();
+        if (mLock.tryLock()){
+
+            //mBtnMain = findViewById(R.id.btn_main);
+            //mBtnAsync = findViewById(R.id.btn_async);
+            //mBtnThread = findViewById(R.id.btn_thread);
+            try{
+                Runtime.getRuntime().gc();
+                mImgSource.setImageBitmap(null);;
+                mImgSource.setImageBitmap(bitmap);;
+
+            }finally {
+                mLock.unlock();
+            }
+        }
+
+        enableBTN();
+    }
+    private void clearImage(){
+        //bankLock.lock();
+        if (mLock.tryLock()){
+            try{
+                Runtime.getRuntime().gc();
+                mImgSource.setImageBitmap(null);;
+
+            }finally {
+                mLock.unlock();
+            }
+        }
+    }
 
     /**
      * Private classes used herein
@@ -154,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_main:btnMainEvent(); break;
                 case R.id.btn_async:btnAsyncEvent(); break;
                 case R.id.btn_thread:btnThreadEvent();break;
-                case R.id.btn_Clean:mImgSource.setImageBitmap(null);break;
+                case R.id.btn_Clean:clearImage();break;
                 case R.id.btn_ShowMsg:ShowMessage();break;
             }
 
@@ -242,7 +287,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             if (mBitmap_out != null) {
-                mImgSource.setImageBitmap(mBitmap_out);
+                setImage(mBitmap_out);
+
                 mProgressBarAsync.setVisibility(View.INVISIBLE);
                 mProgressBarAsync.setProgress(0);
             }
