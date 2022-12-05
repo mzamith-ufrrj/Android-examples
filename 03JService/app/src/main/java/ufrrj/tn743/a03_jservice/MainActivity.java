@@ -62,7 +62,16 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private void startServiceEvent(){startService(new Intent(this, PlayFG.class));}
+    private void startServiceEvent(){
+        startService(new Intent(this, PlayFG.class));
+        /*https://stackoverflow.com/questions/3907713/how-to-send-and-receive-broadcast-message
+        Intent intent = new Intent("msg");    //action: "msg"
+        intent.setPackage(getPackageName());
+        intent.putExtra("message", "hello!");
+        getApplicationContext().sendBroadcast(intent);*/
+
+
+    }
 
     private void stopServiceEvent(){stopService(new Intent(this, PlayFG.class));}
 

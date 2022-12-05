@@ -63,8 +63,6 @@ public class DownloadBG extends IntentService {
         }else{
             sendMessage("Não foi informado o diretório e/ou nome do arquivo!");
         }
-
-
     }
 
     @Override
