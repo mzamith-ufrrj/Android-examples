@@ -91,25 +91,25 @@ public class SecondActivity extends AppCompatActivity {
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         // Second, get the sensor you're interested in
-        Sensor magnetField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-        Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        Sensor gyroscope =  sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        Sensor gravity =  sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        //Sensor magnetField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        //Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //Sensor gyroscope =  sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+            Sensor gravity =  sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         Sensor steps =  sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
-        MagnetSensorListener sensorEventListenerMagnet = new MagnetSensorListener() ;
-        AccelerometerSensorListener sensorEventListenerAccelerometer = new AccelerometerSensorListener();
-        GyroscopeSensorListener sensorEventListenerGyroscope = new GyroscopeSensorListener();
+       // MagnetSensorListener sensorEventListenerMagnet = new MagnetSensorListener() ;
+       // AccelerometerSensorListener sensorEventListenerAccelerometer = new AccelerometerSensorListener();
+       // GyroscopeSensorListener sensorEventListenerGyroscope = new GyroscopeSensorListener();
         GravitySensorListener sensorEventListenerGravity = new GravitySensorListener();
         StepsSensorListener sensorEventListenerStep = new StepsSensorListener();
 
         // Finally, register your listener
-        sensorManager.registerListener(sensorEventListenerAccelerometer, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(sensorEventListenerMagnet, magnetField, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(sensorEventListenerGyroscope, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+        //sensorManager.registerListener(sensorEventListenerAccelerometer, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        //sensorManager.registerListener(sensorEventListenerMagnet, magnetField, SensorManager.SENSOR_DELAY_NORMAL);
+        //sensorManager.registerListener(sensorEventListenerGyroscope, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
 
         sensorManager.registerListener(sensorEventListenerGravity, gravity, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(sensorEventListenerStep, steps, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(sensorEventListenerStep, steps, SensorManager.SENSOR_DELAY_UI);
 
 
     }//protected void onCreate(Bundle savedInstanceState) {

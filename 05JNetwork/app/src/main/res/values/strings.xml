@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">05JNetwork</string>
+    <string name="btn_udp">UDP</string>
+    <string name="btn_tcp">TCP</string>
+    <string name="btn_https">Https</string>
+    <string name="btn_wifi_aps">APs disponíveis</string>
+    <string name="edt_socket">IP/PORTA</string>
+    <string name="edt_socket_ip_port">192.168.1.10:20001</string>
+
+</resources>
