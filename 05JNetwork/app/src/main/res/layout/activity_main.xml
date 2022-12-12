@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:orientation="vertical"
@@ -54,12 +55,14 @@
             android:textColor="@color/black"
             android:inputType="textPersonName"
             android:text="@string/edt_socket_ip_port" />
-
+<!--
         <FrameLayout
+            android:id="@+id/out_framelayout"
             android:layout_width="match_parent"
-            android:background="@color/yellow_ufrrj"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/yellow_ufrrj">
 
         </FrameLayout>
+-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
