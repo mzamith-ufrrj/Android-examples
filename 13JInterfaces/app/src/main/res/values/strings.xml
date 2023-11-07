@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">13JInterfaces</string>
+    <string name="main_title">Interfaces</string>
+    <string name="main_subtitle">ListView e relacionados</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

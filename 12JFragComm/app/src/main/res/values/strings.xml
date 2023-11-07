@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">12JFragComm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="main_frag_txtLabel">Tipo de conexão</string>
+    <string name="main_btlabel">Bluetooth</string>
+    <string name="main_tcplabel">TCP</string>
+    <string name="main_udplabel">UDP</string>
+    <string name="main_frag_btlabel">Lista tipos de conexão</string>
+
+</resources>

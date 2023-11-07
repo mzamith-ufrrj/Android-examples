@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">J10Services</string>
+    <string name="str_background_service_main_ac"><b>Serviço em segundo plano</b></string>
+    <string name="str_foreground_service_main_ac"><b>Serviço em primeiro plano</b></string>
+    <string name="str_unbind_service_main_ac"><b>Serviço desvinculado</b></string>
+    <string name="str_notification_title">Exemplo de serviço por MZ</string>
+    <string name="str_notification_message">All your bases are belong to us!</string>
+    <string name="str_ticker_text">Exemplo de TICKER TEXT</string>
+    <string name="str_foreground_service_main_url"><b>Serviço\nacesso ao servidor</b></string>
+    <string name="str_name_key">THREAD_COMM_KEY</string>
+</resources>

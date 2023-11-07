@@ -1,0 +1,35 @@
+<html>
+
+
+    <head>
+        <title>Exemplo com WebView na disciplina TN-743</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=charset=UTF-8">
+        <!--
+        <link rel="stylesheet" href="principal.css" type="text/css">
+        <link rel="stylesheet" href="programa.css" type="text/css">
+        <link rel="stylesheet" href="minicursos.css" type="text/css">
+        -->
+    </head>
+    <script type="text/javascript">
+        function showAndroidToast(toast) {
+            android.showToast(toast);
+            window.open('second.html', '_blank');
+            //window.location.replace("second.html");
+        }
+
+        function loadMap() {
+
+//            window.open('IM-2-andar.0.1.svg', '_blank');
+            window.open('map.html', '_blank');
+            //window.location.replace("second.html");
+        }
+
+    </script>
+    <body>
+        <h1>Hello World<h1>
+
+            <input type="Android Toast" value="Say hello !" onClick="showAndroidToast('Hello Android!')" />
+            <input type="Map" value="Map" onClick="loadMap()" />
+
+    </body>
+</html>

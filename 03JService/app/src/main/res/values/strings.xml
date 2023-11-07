@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">03-JService</string>
+    <string name="label_btn_stop">Parar</string>
+    <string name="label_btn_start">Iniciar</string>
+    <string name="label_btn_bg_start">Download em BG</string>
+    <string name="label_text">Exemplo: Service</string>
+    <string name="label_btn_rand">Rand</string>
+</resources>

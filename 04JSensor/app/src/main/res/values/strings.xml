@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">04-JSensor</string>
+    <string name="label_text">Exemplos</string>
+    <string name="label_GPS_title">Exemplo: GPS</string>
+    <string name="label_movement_title">sensores de movimento</string>
+    <string name="label_btn_take_picture">Tirar a foto</string>
+    <string name="label_edt_lati">Latitude:</string>
+    <string name="label_edt_long">Longiture:</string>
+    <string name="label_edt_coord">Coordenadas do GPS:</string>
+    <string name="label_edt_speed">Velocidade (m/s):</string>
+    <string name="label_edt_distance">Distância (m):</string>
+    <string name="label_edt_altitude">Altitude (m):</string>
+    <string name="label_edt_compass">Bússola:</string>
+    <string name="label_edt_value">4 8 15 16 23 42</string>
+    <string name="label_edt_accelerometer">Acelerômetro:</string>
+    <string name="label_edt_gyroscope">Giroscópio:</string>
+    <string name="label_edt_gravity">Gravidade:</string>
+    <string name="label_edt_steps">Passos:</string>
+    <string name="label_btn_camera">Câmera</string>
+    <string name="label_btn_gps">GPS</string>
+
+
+</resources>

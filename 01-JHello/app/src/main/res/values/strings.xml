@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JHello</string>
+    <string name="btn_next_label">Próximo</string>
+    <string name="btn_prev_label">Anterior</string>
+
+    <string name="txt_view_default">All your bases are belong to us!</string>
+
+</resources>

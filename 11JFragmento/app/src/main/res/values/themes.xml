@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme._11JFragmento" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blue_ufrrj</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green_ufrrj</item>
+        <item name="colorSecondaryVariant">@color/yellow_ufrrj</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+    </style>
+
+    <style name="Theme._11JFragmento" parent="Base.Theme._11JFragmento" />
+</resources>
